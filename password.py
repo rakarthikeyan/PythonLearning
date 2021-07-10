@@ -3,8 +3,8 @@ import string
 
 # generate random password of length 8-15
 # mandatory - 1 lower, 1 upper, 1 digit, 1 special
-# Dash {-}; this character is not supported as the first character in the user ID
-# Period {.}; this character is not supported as the first character in the user ID
+# Dash {-} ; this character is not supported as the first character in the user ID
+# Period {.} ; this character is not supported as the first character in the user ID
 
 passLen = random.randint(8, 15)
 lcase = string.ascii_lowercase
