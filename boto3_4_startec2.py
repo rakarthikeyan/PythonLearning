@@ -1,8 +1,9 @@
 import boto3
+import time
 session=boto3.Session(profile_name="devops",region_name='us-east-2')
 client=session.client(service_name="ec2",region_name='us-east-2')
 
-# Start a ec2 instance 
+#Start a ec2 instance 
 
 # response = client.start_instances(
 #     InstanceIds=[
@@ -10,15 +11,20 @@ client=session.client(service_name="ec2",region_name='us-east-2')
 #     ]
 # )
 
-# Get details of the ec2 instance
+#Get details of the ec2 instance
 
-# response = client.describe_instances(
+response = client.describe_instances(
     
-#     InstanceIds=[
-#         'i-0786d1a6592b6a466',
-#     ],
+    InstanceIds=[
+        'i-0786d1a6592b6a466',
+    ],
     
-# )["Reservations"][0]['Instances'][0]
+)["Reservations"][0]['Instances'][0]
+
+print(response)
+
+for key,value in response.items():
+    print(key,":",value)
 
 # print("PublicIpAddress : ", response.get('PublicIpAddress'))
 # print("PublicDnsName : ", response.get('PublicDnsName'))
@@ -27,10 +33,10 @@ client=session.client(service_name="ec2",region_name='us-east-2')
 
 #Stop a ec2 instance 
 
-response = client.stop_instances(
-    InstanceIds=[
-        'i-0786d1a6592b6a466',
-    ]
-)
+# response = client.stop_instances(
+#     InstanceIds=[
+#         'i-0786d1a6592b6a466',
+#     ]
+# )
 
 
