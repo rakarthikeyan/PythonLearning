@@ -13,5 +13,6 @@ for x in regions:
     response = ec21.describe_instance_status()['InstanceStatuses']
     if len(response) > 0:
         print("Region:", x['RegionName'])
-        print("Instance ID: ", response[0]['InstanceId'])
-        print("Instance State:", response[0]['InstanceState'])
+        for each_instance in response:
+            print(each_instance['InstanceId'], '|',
+                  each_instance['InstanceState']['Name'])
